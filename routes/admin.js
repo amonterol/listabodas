@@ -13,7 +13,7 @@ const Producto = require('../models/producto');
 //Importamos el contralador de productos
 const productoControlador = require('../controllers/productoControlador');
 const listaControlador = require('../controllers/listaControlador');
-
+const shopControlador = require('../controllers/shop');
 
 //Creamos una instancia de clase express.Router para direccionamiento 
 //de todas las vistas de la aplicacion
@@ -52,7 +52,7 @@ router.post( '/add-lista', listaControlador.postAddLista );
 //que permite mostrar todas los productos en la base de datos al administrador.
 //La solicitud de la pagina  ejecutara la funcion "getProducts" 
 //del "productosControlador"
-router.get( '/listarProductos', productoControlador.getListarProductos );
+router.get( '/listarProductosAdmin', productoControlador.getListarProductos );
 
 //Establecemos la ruta para la GET request de la pagina  "/productos"
 //que permite mostrar todas los productos en la base de datos.
@@ -75,6 +75,8 @@ router.get( '/mostrarListas', listaControlador.getMostrarListas  );
 //La solicitud de la pagina  ejecutara la funcion "getLista" 
 //del "listasControlador"
 router.get('/mostrarListas/:idLista', listaControlador.getListaAdmin );
+
+router.post('/listarProductosAdmin', shopControlador.postProductosEnLista);
 
 
 module.exports = router;

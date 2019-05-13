@@ -1,10 +1,21 @@
 const Producto = require('../models/producto');
-//const Lista_Productos = require('../models/lista_productos');
+const Lista = require('../models/lista');
 
 
 //Exportamos la funcion que nos permite mostrar todos los productos 
 exports.getIndex = (req, res, next) => {
+  Lista
+  .obtenerTodasLasListas()
+  .then(([rows, fieldsData]) => {
+     res.render('shop/index', {
+       listas: rows,
+       pageTitle: 'Listas de Bodas',
+       path: '/',
+     });
+   })
+   .catch( err => console.log(err));
 
+  /*
   Producto
    .obtenerTodosLosProductos()
    .then(([rows, fieldsData]) => {
@@ -15,6 +26,7 @@ exports.getIndex = (req, res, next) => {
       });
     })
     .catch( err => console.log(err));
+*/    
     
 };  
 
@@ -80,6 +92,27 @@ exports.postProductosEnLista = (req, res, next) => {
   Producto
   .obtenerTodosLosProductos()
   .then(([rows, fieldsData]) => {
+    res.render('admin/listarProductosAdmin', {
+      productos: rows,
+      pageTitle: 'Shop',
+      idLista: idLista,
+      path: '/listarProductosAdmin',
+    });
+  })
+  .catch( err => console.log(err));
+  console.log(idLista);
+  console.log(idProducto);
+  //res.redirect('/cart');
+  
+};
+/*
+exports.postProductosEnLista = (req, res, next) => {
+  const idLista = req.body.idLista;
+  const idProducto = req.body.idProducto;
+  
+  Producto
+  .obtenerTodosLosProductos()
+  .then(([rows, fieldsData]) => {
     res.render('shop/productos', {
       productos: rows,
       pageTitle: 'Shop',
@@ -93,24 +126,6 @@ exports.postProductosEnLista = (req, res, next) => {
   //res.redirect('/cart');
   
 }; 
-/*
-exports.postCart = (req, res, next) => {
-  const idLista = req.body.idLista;
-  const idProducto = req.body.idProducto;
-  
-  var nuevoProductoEnLista = new Lista_Productos( idProducto, idLista);
-  
-  nuevoProductoEnLista
-  .agregarProductoALista()
-  .then(
-    () => {
-      res.redirect('/');
-    })
-  .cath( err => {
-    console.log(err)
-  });
-   
-};  
 */
   //Exportamos la funcion que nos permite mostrar todos los productos 
   exports.getCheckout = (req, res, next) => {

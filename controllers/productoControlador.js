@@ -64,10 +64,10 @@ exports.getListarProductos = (req, res, next) => {
   Producto
   .obtenerTodosLosProductos()
   .then(([rows, fieldsData]) => {
-    res.render('admin/listarProductos', {
+    res.render('admin/listarProductosAdmin', {
       productos: rows,
       pageTitle: 'Admin Lista de Productos',
-      path: '/admin/listarProductos',
+      path: '/admin/listarProductosAdmin',
     });
   })
   .catch( err => console.log(err));

@@ -69,22 +69,43 @@ exports.getMostrarListas = (req, res, next) => {
   };
 
   //Exportamos la funcion que nos permite mostrar todos los productos 
-exports.getLista = (req, res, next) => {
+  /*
+  exports.getLista = (req, res, next) => {
+    const id = req.params.idLista;
+    
+    Lista
+    .obtenerListaPorId( id )
+    .then( ([ lista ]) => {
+        res.render('listas/detalleLista', {
+        lista: lista[0],
+        pageTitle: lista.nombreLista,
+        path:'/listas/listas'
+      });
+    })
+    .catch( err => console.log(err) );
+   
+  };
+  */
+  exports.getLista = (req, res, next) => {
   const id = req.params.idLista;
-  
   Lista
-  .obtenerListaPorId( id )
-  .then( ([ lista ]) => {
-      res.render('listas/detalleLista', {
-      lista: lista[0],
-      pageTitle: lista.nombreLista,
-      path:'/listas/listas'
-    });
-  })
-  .catch( err => console.log(err) );
-  
+    .obtenerListaPorId( id )
+    .then( ([ lista ]) => {
+        res.render('listas/detalleLista', {
+        lista: lista,
+        pageTitle: lista.nombreLista,
+        path:'/listas/listas'
+      });
+      console.log(lista);
+      console.log(`el tamano de la lista es ${ lista.length}`);
+    })
+    .catch( err => console.log(err) );
+   
+  };
  
-};
+ 
+
+
 exports.getListaAdmin = (req, res, next) => {
   const id = req.params.idLista;
   
@@ -98,8 +119,34 @@ exports.getListaAdmin = (req, res, next) => {
     });
   })
   .catch( err => console.log(err) );
-  
- 
+
+
+
 };
+
+exports.mostrarProductosDeUnaLista = (req, res, next) => {
+  const id = req.params.idLista;
+  /*
+  Lista
+  .obtenerListaPorId( id )
+  .then( ([ lista ]) => {
+      lista: lista[0];
+  })
+  .catch( err => console.log(err) );
+  */
+  Lista
+  .mostrarProductosDeUnaLista( id )
+  .then( ([ productos ]) => {
+      res.render('listas/detalleLista', {
+      productos: productos,
+      pageTitle: lista.nombreLista,
+      path:'/listas/listas'
+    });
+  })
+  .catch( err => console.log(err) );
+};
+
+
+
 
   

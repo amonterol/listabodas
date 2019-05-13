@@ -4,20 +4,15 @@
     <body>
         <%- include('../includes/navigation.ejs') %>
         <main class="centered">
-            <h1><%= lista.nombreLista %></h1>
+               
+            <h1><%= lista[0].nombreLista %></h1>
             <hr>
             <div>
-                <img src="<%= lista.urlImagenLista %>" alt="<%= lista.urlImagenLista %>">
+                <img src="<%= lista[0].urlImagenLista %>" alt="<%= lista[0].urlImagenLista %>">
             </div>
-            <h2><%= lista.fechaBoda %></h2>
-            <p><%= lista.lugarCelebracion %></p>
-            <div class="card__actions">
-                <form action="/productos" method="POST">
-                    <button class="btn" type="submit">Agregar Productos</button>
-                    <input type="hidden" name="idLista" value="<%= lista.idLista %>">
-                </form>
-                <!--<a href="/productos" class="btn" name="id" id="id">Agregar Productos</a> -->
-            </div>
+            <h2><%= lista[0].fechaBoda %></h2>
+            <p><%= lista[0].lugarCelebracion %></p>
             
+            <%- include('../includes/productos-en-lista.ejs', {lista:lista}) %>
         </main>
         <%- include('../includes/end.ejs') %>

@@ -5,7 +5,7 @@ const express = require('express');
 //Importamos el contralador de productos
 const productosControlador = require('../controllers/productoControlador');
 const shopControlador = require('../controllers/shop');
-const lista_precioController = require('../controllers/lista_precioController');
+const lista_productosControlador = require('../controllers/lista_productosControlador');
 
 const router = express.Router();
 
@@ -33,7 +33,7 @@ router.get('/productos/:idProducto', shopControlador.getProducto );
 
 router.get('/cart', shopControlador.getCart );
 
-router.post('/cart', lista_precioController.postCart )
+router.post('/cart', lista_productosControlador.postCart )
 
 router.get('/orders', shopControlador.getOrders );
 

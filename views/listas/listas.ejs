@@ -8,30 +8,32 @@
 
     <main>
         <% if ( listas.length > 0 ) { %>
-            <div class="grid">
-                <% for (let lista of listas) { %>
-                    <article class="card product-item">
-                        <header class="card__header">
-                            <h1 class="product__title"><%= lista.nombreLista %></h1>
-                        </header>
-                        
-                        <div class="card__image">
-                            <img src="<%= lista.urlImagenLista %>" alt="<%= lista.nombreLista %>">
-                        </div>
-                        <div class="card__content">
-                            <h2 class="product__price"><%= lista.lugarCelebracion %></h2>
-                            <h2 class="product__cantidad"><%= lista.fechaBoda %></h2>
-                            <h2 class="product__cantidad"><%= lista.estadoLista %></h2>
-                        </div>
-                      
-                        <div class="card__actions">
-                            <a href="/listas/listas/<%= lista.idLista %>" class="btn" name="id" id="id">Ver Detalle</a>
-                        </div>
-                      
-                    </article>
-                <% } %>
-            </div>
+        <div class="grid">
+            <% for (let lista of listas) { %>
+            <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title"><%= lista.nombreLista %></h1>
+                </header>
+    
+                <div class="card__image">
+                    <img src="<%= lista.urlImagenLista %>" alt="<%= lista.nombreLista %>">
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price"><%= lista.lugarCelebracion %></h2>
+                    <h2 class="product__cantidad"><%= lista.fechaBoda %></h2>
+                    <h2 class="product__cantidad"><%= lista.estadoLista %></h2>
+                </div>
+    
+                <div class="card__actions">
+                    <a href="/listas/listas/<%= lista.idLista %>" class="btn" name="id" id="id">Ver Detalle</a>
+                </div>
+    
+            </article>
+            <% } %>
+        </div>
         <% } else { %>
-            <h1>No se encontro ninguna lista</h1>
+        <h1>No se encontro ninguna lista</h1>
         <% } %>
+        
+    </main>
     <%- include('../includes/end.ejs') %>
