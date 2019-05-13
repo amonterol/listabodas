@@ -1,0 +1,23 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main class="centered">
+            <h1><%= lista.nombreLista %></h1>
+            <hr>
+            <div>
+                <img src="<%= lista.urlImagenLista %>" alt="<%= lista.urlImagenLista %>">
+            </div>
+            <h2><%= lista.fechaBoda %></h2>
+            <p><%= lista.lugarCelebracion %></p>
+            <div class="card__actions">
+                <form action="/productos" method="POST">
+                    <button class="btn" type="submit">Agregar Productos</button>
+                    <input type="hidden" name="idLista" value="<%= lista.idLista %>">
+                </form>
+                <!--<a href="/productos" class="btn" name="id" id="id">Agregar Productos</a> -->
+            </div>
+            
+        </main>
+        <%- include('../includes/end.ejs') %>

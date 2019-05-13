@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (productos.length > 0) { %>
+            <div class="grid">
+                <% for (let producto of productos) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title"><%= producto.nombreProducto %></h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= producto.imagenProducto %>" alt="<%= producto.nombreProducto %>">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price"><%= producto.precioProducto %></h2>
+                            <h2 class="product__cantidad"><%= producto.cantidadProducto %></h2>
+                            <p class="product__descripcion"><%= producto.descripcionProducto %></p>
+                        </div>
+                        <div class="card__actions">
+                            <a href="/productos/<%= producto.idProducto %>" class="btn" name="id" id="id">Detalle</a>
+                            <form action="/cart" method="POST">
+                                <input type="hidden"  name="idLista" value="<%= idLista %>">
+                                <input type="hidden"  name="idProducto" value="<%= producto.idProducto %>">
+                                <button class="btn">Agregar a la Lista</button>
+                            </form>    
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Products Found!</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>

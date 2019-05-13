@@ -1,0 +1,77 @@
+<div class="backdrop"></div>
+<header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+
+            <!-- Shop Area -->
+            <li class="main-header__item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/productos' ? 'active' : '' %>" href="/productos">Productos</a>
+            </li>
+            <li class="main-header__item">
+                    <a class="<%= path === '/listas/listas' ? 'active' : '' %>" href="/listas/listas">Listas</a>
+                </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+            </li>
+
+            <!-- Admin Area -->
+            <li class="main-header__item">
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
+            </li>
+            <li class="main-header__item">
+                    <a class="<%= path === '/admin/listarProductos' ? 'active' : '' %>" href="/admin/listarProductos">Admin Productos</a>
+                </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/admin/add-lista' ? 'active' : '' %>" href="/admin/add-lista">Add Lista</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/admin/mostrarListas' ? 'active' : '' %>" href="/admin/mostrarListas">Admin  Listas</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+
+<nav class="mobile-nav">
+        <ul class="mobile-nav__item-list">
+
+                <!-- Shop Area -->
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/productos' ? 'active' : '' %>" href="/productos">Productos</a>
+                </li>
+                <li cclass="mobile-nav__item">
+                        <a class="<%= path === '/listas/listas' ? 'active' : '' %>" href="/listas/listas">Listas</a>
+                    </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+                </li>
+    
+                <!-- Admin Area -->
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
+                </li>
+                <li class="mobile-nav__item">
+                        <a class="<%= path === '/admin/listarProductos' ? 'active' : '' %>" href="/admin/listarProductos">Admin Productos</a>
+                    </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/admin/add-lista' ? 'active' : '' %>" href="/admin/add-lista">Add Lista</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="<%= path === '/admin/mostrarListas' ? 'active' : '' %>" href="/admin/mostrarListas">Admin  Listas</a>
+                </li>
+                
+            </ul>  
+</nav>
