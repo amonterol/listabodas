@@ -9,11 +9,7 @@
                         <div class="card__image">
                             <img src="<%= producto.imagenProducto %>" alt="<%= producto.nombreProducto %>">
                         </div>
-                        <div class="card__content">
-                            <h2 class="product__price"><%= producto.precioProducto %></h2>
-                            <h2 class="product__cantidad"><%= producto.cantidadProducto %></h2>
-                            <p class="product__descripcion"><%= producto.descripcionProducto %></p>
-                        </div>
+                        
                         <div class="card__actions">
                             <a href="/productos<%= producto.idProducto %>" class="btn" name="id" id="id">Detalle</a>
                             <form action="/cart" method="POST">

@@ -62,22 +62,21 @@ module.exports = class Lista {
     static obtenerListaPorId( id ){
         //return db.promise().execute('SELECT * FROM `listas` WHERE `idLista` = ?',
         //[id]);
-       /* return db.promise().execute( 
-            'SELECT  `nombreProducto`, `precioProducto`, `descripcionProducto`, `imagenProducto`'+
-                    '`nombreLista`, `fechaBoda`, `lugarCeremonia`, `estadoLista`, `urlImagenLista`'+ 
-            'FROM `productos`' + 
-                'INNER JOIN  `productos_has_listas` ON `productos.idProducto` = `productos_has_listas.productos_idProductos`'+
-                'INNER JOIN  `listas`  ON `productos_has_listas.listas_idLista` = `listas.idLista`'+        
-            'WHERE `productos_has_listas.listas_idLista` = ?', 
+        return db.promise().execute( 
+            `SELECT  * FROM productos 
+                INNER JOIN  productos_has_listas ON productos.idProducto = productos_has_listas.productos_idProductos
+                INNER JOIN  listas  ON productos_has_listas.listas_idLista = listas.idLista       
+             WHERE productos_has_listas.listas_idLista = ?`, 
             [id]);
-        */   
-       console.log( id );
+           
+       /*
        return db.promise().execute( 
         'SELECT  * FROM productos INNER JOIN  productos_has_listas ON productos.idProducto = productos_has_listas.productos_idProductos INNER JOIN  listas  ON productos_has_listas.listas_idLista = listas.idLista WHERE productos_has_listas.listas_idLista = ?', 
         [id]);
+        */
     }
 
-     
+    /* 
     static mostrarProductosDeUnaLista( id ){
         return db.promise().execute( 
             'SELECT  `nombreProducto`, `precioProducto`, `descripcionProducto`, `imagenProducto`'+ 
@@ -89,7 +88,7 @@ module.exports = class Lista {
     }
     
    
-    /*
+    
     static mostrarProductosLista(){
     return db.promise().execute( 
         'SELECT  * FROM `productos`' + 

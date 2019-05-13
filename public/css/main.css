@@ -13,6 +13,8 @@ body {
 main {
   padding: 1rem;
   margin: auto;
+  width: 75rem;
+  justify-content: center;
 }
 
 form {
@@ -141,12 +143,17 @@ form {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: stretch;
+  justify-content: center;
+  
+  
+  width: 75rem;
 }
 
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  width: 15rem;
+  padding: 0.25rem;
+  margin: 1rem;
 }
 
 .card__header,
