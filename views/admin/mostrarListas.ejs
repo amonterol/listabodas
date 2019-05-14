@@ -1,11 +1,36 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/product.css">
+<link rel="stylesheet" href="/css/card.css">
 </head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
-
-
+    <h3 style="text-align: center; margin: 25px 100px 25px 100px;">Nuestras listas de bodas</h3>
+    <hr style="width:75%;">
+    <div class="card-group px-md-5 justify-content-center  ">
+    
+        <% if ( listas.length > 0 ) { %>
+    
+        <!--utilizado para mostrar pagina para modificar lista -->
+        <% for (let lista of listas) { %>
+        <a href="/listas/listas/<%= lista.idLista %>" name="id" id="id">
+            <div class="card  mx-3 my-5 align-items-center align-items-center justify-content-center  ">
+    
+    
+                <img class="card-img-top img-responsive  " style="width: 25rem; height: 25rem;" src="<%= lista.urlImagenLista %>" alt="<%= lista.nombreLista %>">
+    
+                <div class="card-img-overlay hover-card  ">
+                    <h4 class="top"><%= lista.nombreLista %></h4>
+                </div>
+            </div>
+    
+        </a>
+        <% } %>
+        <% } else { %>
+        <h1>No se encontro ninguna lista</h1>
+        <% } %>
+    
+    </div>
+<!--
     <main>
         <% if ( listas.length > 0 ) { %>
             <div class="grid">
@@ -33,4 +58,6 @@
         <% } else { %>
             <h1>No se encontro ninguna lista</h1>
         <% } %>
+
+        -->
     <%- include('../includes/end.ejs') %>
