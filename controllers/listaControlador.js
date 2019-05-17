@@ -55,18 +55,19 @@ exports.getListas = (req, res, next) => {
 //Exportamos la funcion que nos permite mostrar todas las listas
 //al administrador de la aplicacion
 exports.getMostrarListas = (req, res, next) => {
-  Lista
-   .obtenerTodasLasListas()
-   .then(([rows, fieldsData]) => {
-      res.render('admin/mostrarListas', {
-        listas: rows,
-        pageTitle: 'Listas de Bodas',
-        path: 'admin/mostrarListas',
-      });
-    })
-    .catch( err => console.log(err));
   
-  };
+    Lista
+      .obtenerTodasLasListas()
+      .then(([rows, fieldsData]) => {
+        res.render('admin/mostrarListas', {
+          listas: rows,
+          pageTitle: 'Listas de Bodas',
+          path: 'admin/mostrarListas',
+          usuarioAutenticado: req.usuarioInicioSesion
+        });
+      })
+      .catch(err => console.log(err));
+};
 
   //Exportamos la funcion que nos permite mostrar todos los productos 
   /*
@@ -115,7 +116,8 @@ exports.getListaAdmin = (req, res, next) => {
       res.render('admin/detalleListaAdmin', {
       lista: lista[0],
       pageTitle: lista.nombreLista,
-      path:'/mostrarListas'
+      path:'/mostrarListas',
+      usuarioAutenticado: req.usuarioInicioSesion
     });
   })
   .catch( err => console.log(err) );
@@ -140,7 +142,8 @@ exports.mostrarProductosDeUnaLista = (req, res, next) => {
       res.render('listas/detalleLista', {
       productos: productos,
       pageTitle: lista.nombreLista,
-      path:'/listas/listas'
+      path:'/listas/listas',
+      usuarioAutenticado: req.usuarioInicioSesion
     });
   })
   .catch( err => console.log(err) );

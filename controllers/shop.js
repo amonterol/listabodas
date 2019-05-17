@@ -11,6 +11,7 @@ exports.getIndex = (req, res, next) => {
        listas: rows,
        pageTitle: 'Listas de Bodas',
        path: '/',
+       usuarioAutenticado: req.usuarioInicioSesion
      });
    })
    .catch( err => console.log(err));
@@ -41,6 +42,7 @@ exports.getProductos = (req, res, next) => {
       productos: rows,
       pageTitle: 'Productos',
       path: '/productos',
+      usuarioAutenticado: req.usuarioInicioSesion
     });
   })
   .catch( err => console.log(err));

@@ -1,0 +1,107 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+<!-- Sign Up-->
+
+<div class="container">
+    <div id="loginbox" style="margin-top:50px;" class="row  mx-5 my-5 justify-content-center">
+        <div class="col  col-md-6 col-sm-12 p-2 border border-primary rounded">
+
+
+            <div class="d-flex justify-content-center mb-3">Sign Up</div>
+            
+            <% if (errorMessage) { %>
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"><%= errorMessage %></div>
+                <div class="user-message user-message--error"><%= errorMessage %></div>
+            <% } %>
+
+
+            <form id="signupform" action="/signup" method="POST" role="form">
+
+                <!-- Informacion Usuario -->
+                <div class="form-group">
+                    <label for="email" class="col-md-3 control-label"> Email</label>
+                    <div class="col"">
+                        <input type=" text" class="form-control" name="email"  placeholder="Ingrese su email ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idUsuario" class="col-md-3 control-label">Identificación</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="id" placeholder="Ingrese su número de identificación">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nombre" class="col-md-3 control-label">Nombre</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="primer-apellido" class="col-md-4 control-label">Primer Apellido</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="primerApellido" placeholder="Ingrese su primer apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="segundo-apellido" class="col-md-4 control-label">Segundo Apellido</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="segundoApellido" placeholder="Ingrese su segundo apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="telefono" class="col-md-4 control-label">Telefono</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="telefono" placeholder="Ingrese su telefono">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="direccion" class="col-md-4 control-label">Dirección</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="direccion" placeholder="Ingrese su direccion">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="permiso" class="col-md-4 control-label">Permiso</label>
+                    <div class="col">
+                        <input type="text" class="form-control" name="permiso" placeholder="Ingrese su permiso">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-md-3 control-label">Password</label>
+                    <div class="col">
+                        <input type="password" class="form-control" name="password" placeholder="Ingrese su assword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmar-password" class="col-md-3 control-label">Confirmar Password</label>
+                    <div class="col">
+                        <input type="password" class="form-control" name="confirmarPassword" placeholder="Confirme su password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Button -->
+                    <div class="col-md-offset-3 col-md-9">
+                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>
+                            &nbsp Sign Up</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+
+<%- include('../includes/end.ejs') %>

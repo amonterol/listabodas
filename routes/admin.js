@@ -8,6 +8,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Producto = require('../models/producto');
+const usuarioAutenticado = require('../util/usuarioAutenticado');
 
 
 //Importamos el contralador de productos
@@ -67,7 +68,7 @@ router.get( '/listarProductosAdmin', productoControlador.getListarProductos );
 //que permite mostrar todas las listas en la base de datos al administrador.
 //La solicitud de la pagina  ejecutara la funcion "getMostrarLista" 
 //del "listasControlador"
-router.get( '/mostrarListas', listaControlador.getMostrarListas  );
+router.get( '/mostrarListas', usuarioAutenticado, listaControlador.getMostrarListas  );
 
 
 //Establecemos la ruta para la GET request de la pagina  "admin/detalleLista"

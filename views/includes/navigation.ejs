@@ -1,83 +1,4 @@
-<!--
-<div class="backdrop"></div>
-<header class="main-header">
-    <button id="side-menu-toggle">Menu</button>
-    <nav class="main-header__nav">
-        <ul class="main-header__item-list">
 
-             Shop Area 
-            <li class="main-header__item">
-                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
-            </li>
-            <li class="main-header__item">
-                <a class="<%= path === '/productos' ? 'active' : '' %>" href="/productos">Productos</a>
-            </li>
-            <li class="main-header__item">
-                    <a class="<%= path === '/listas/listas' ? 'active' : '' %>" href="/listas/listas">Listas</a>
-                </li>
-            <li class="main-header__item">
-                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
-            </li>
-            <li class="main-header__item">
-                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
-            </li>
-
-             Admin Area 
-            <li class="main-header__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
-            </li>
-            <li class="main-header__item">
-                    <a class="<%= path === '/admin/listarProductosAdmin' ? 'active' : '' %>" href="/admin/listarProductosAdmin">Admin Productos</a>
-                </li>
-            <li class="main-header__item">
-                <a class="<%= path === '/admin/add-lista' ? 'active' : '' %>" href="/admin/add-lista">Add Lista</a>
-            </li>
-            <li class="main-header__item">
-                <a class="<%= path === '/admin/mostrarListas' ? 'active' : '' %>" href="/admin/mostrarListas">Admin  Listas</a>
-            </li>
-            
-        </ul>
-    </nav>
-</header>
-
-<nav class="mobile-nav">
-        <ul class="mobile-nav__item-list">
-
-                 Shop Area 
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
-                </li>
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/productos' ? 'active' : '' %>" href="/productos">Productos</a>
-                </li>
-                <li cclass="mobile-nav__item">
-                        <a class="<%= path === '/listas/listas' ? 'active' : '' %>" href="/listas/listas">Listas</a>
-                    </li>
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
-                </li>
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
-                </li>
-    
-                Admin Area
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a>
-                </li>
-                <li class="mobile-nav__item">
-                        <a class="<%= path === '/admin/listarProductos' ? 'active' : '' %>" href="/admin/listarProductos">Admin Productos</a>
-                    </li>
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/admin/add-lista' ? 'active' : '' %>" href="/admin/add-lista">Add Lista</a>
-                </li>
-                <li class="mobile-nav__item">
-                    <a class="<%= path === '/admin/mostrarListas' ? 'active' : '' %>" href="/admin/mostrarListas">Admin  Listas</a>
-                </li>
-                
-            </ul>  
-</nav>
-
--->
 <div class="row  mt-0 mb-0 mx-5 flex-nowrap align-items-sm-center align-items-md-center  justify-content-between"
     style="background-color: #009900;">
 
@@ -93,6 +14,10 @@
             <a class="p-2 text-dark" href="/"><strong>Home</strong></a>
             <a class="p-2 text-dark" href="/productos"><strong>Productos</strong></a>
             <a class="p-2 text-dark" href="/listas/listas"><strong>Listas de Bodas</strong></a>
+            
+
+            
+          
             <a class="p-2 text-dark" href="/cart"><strong>Carrito</strong></a>
             <a class="p-2 text-dark" href="/orders"><strong>Ordenes</strong></a>
             <a class="p-2 text-dark" href="/admin/add-producto"><strong>Admin Agregar Producto</strong></a>
@@ -100,42 +25,46 @@
             <a class="p-2 text-dark" href="/admin/add-lista"><strong>Admin Agregar Lista</strong></a>
             <a class="p-2 text-dark" href="/admin/mostrarListas"><strong>Admin Listas de Bodas</strong></a>
             <a class="p-2 text-dark" href="#"><strong>Contacto</strong></a>
+            
+            
 
         </nav>
     </div>
-    <div class="col-3 ml-5 align-self-center  ">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <!-- Links -->
-            <ul class="navbar-nav">
+    <div class="col-4 ml-1 align-self-center justify-content-end ">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end ml-2 mr-2">
+            <ul class="navbar-nav justify-content-around ml-3 mr-3">
+                
+               
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/shopping-cart/">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                    <a class="nav-link" href="/login">
+                        <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Log in
                         <!-- <span class="badge">{{session.cart.totalQty}}</span> -->
                     </a>
                 </li>
-
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                        aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> User
-                        Management <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-
-                        <% if (true)  {%>
-                        <li><a href="/profile/">User Account</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="/logoutForm/">Logout</a></li>
-
-                        <% } else { %>
-                        <a class="dropdown-item" href="/registerForm/">Register</a>
-                        <a class="dropdown-item" href="/loginForm/">Login</a>
-                        <a class="dropdown-item" href="/logoutForm/">Logout</a>
-                        <% } %>
-
-                    </ul>
+               
+                <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                        <!-- <span class="badge">{{session.cart.totalQty}}</span> -->
+                    </a>
                 </li>
+                <form action="/logout" method="post">
+                    <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">
+                        <i class="fas fa-user-plus aria-hidden=" true"></i> Sign Up
+                        <!-- <span class="badge">{{session.cart.totalQty}}</span> -->
+                    </a>
+                </li>
+              
+    
             </ul>
         </nav>
+        
     </div>
 </div>
 <div class="container-fluid">
