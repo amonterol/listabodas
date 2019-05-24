@@ -4,7 +4,7 @@ const db = require('../util/database')
 
 module.exports = class Usuario {
 
-    constructor(email, id, nombre, apellido1, apellido2, telefono, direccion, clave, permiso) {
+    constructor(email, id, nombre, apellido1, apellido2, telefono, direccion, clave, permiso, token, expToken) {
 
         this.email = email;
         this.idUsuario = id;
@@ -15,6 +15,8 @@ module.exports = class Usuario {
         this.direccionUsuario = direccion;
         this.passwordUsuario = clave;
         this.permisoUsuario = permiso;
+        this.token = token;
+        this.expiracionToken = expToken;
 
     }
 
@@ -30,7 +32,9 @@ module.exports = class Usuario {
             telefonoUsuario,
             direccionUsuario,
             passwordUsuario,
-            permisoUsuario ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ? )`,
+            permisoUsuario,
+            token,
+            expiracionToken ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )`,
 
             [this.email,
             this.idUsuario,
@@ -40,7 +44,9 @@ module.exports = class Usuario {
             this.telefonoUsuario,
             this.direccionUsuario,
             this.passwordUsuario,
-            this.permisoUsuario], (error,
+            this.permisoUsuario,
+            this.token,
+            this.expiracionToken], (error,
                 results) => {
                 if (error) {
                     return res.json({ error: error });
@@ -56,5 +62,19 @@ module.exports = class Usuario {
         [email]);
     };
 
+    static actualizarTokenNuevoPassword( token, expiracionToken, email ){
+        return db.promise().execute(`UPDATE bdlistasbodas.usuarios SET token = ?, expiracionToken = ? WHERE email = ?`,
+        [token, expiracionToken, email]);
+    };
+
+    static actualizarNuevoPassword(  password, token, expiracionToken, email ){
+        return db.promise().execute(`UPDATE bdlistasbodas.usuarios SET passwordUsuario = ?, token = ?, expiracionToken = ? WHERE email = ?`,
+        [password, token, expiracionToken, email]);
+    };
+
+    static obtenerUsuarioPorToken( token ){
+        return db.promise().execute('SELECT * FROM `usuarios` WHERE `token` = ?',
+        [ token ]);
+    };
     
 }

@@ -21,4 +21,15 @@ router.post('/logout', authController.postLogout);
 router.get('/signup', authController.getSignUp);
 router.post('/signup', authController.postSignUp);
 
+
+
+//Direccionamiento de proceso de reset el password
+router.get('/resetPwd', authController.getResetPwd);
+router.post('/resetPwd', authController.postResetPwd);
+
+//Direccionamiento del proceso de establecer el nuevo password
+router.get('/nuevoPwd/:token', authController.getNuevoPwd);
+router.post('/nuevoPwd', authController.postNuevoPwd);
+
+
 module.exports = router;

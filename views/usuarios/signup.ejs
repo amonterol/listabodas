@@ -1,6 +1,7 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -9,18 +10,13 @@
 <!-- Sign Up-->
 
 <div class="container">
+        <% if (errorMessage) { %>
+            <!-- <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"><%= errorMessage %></div> -->
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
     <div id="loginbox" style="margin-top:50px;" class="row  mx-5 my-5 justify-content-center">
         <div class="col  col-md-6 col-sm-12 p-2 border border-primary rounded">
-
-
-            <div class="d-flex justify-content-center mb-3">Sign Up</div>
-            
-            <% if (errorMessage) { %>
-                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"><%= errorMessage %></div>
-                <div class="user-message user-message--error"><%= errorMessage %></div>
-            <% } %>
-
-
+          <div class="d-flex justify-content-center mb-3">Sign Up</div>
             <form id="signupform" action="/signup" method="POST" role="form">
 
                 <!-- Informacion Usuario -->
